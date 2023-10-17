@@ -1,0 +1,17 @@
+{% extends'base.html' %}
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+
+    {% for message in messages %}
+      <h1>{{ message }}</h1>
+    {% endfor %}
+   
+{% endwith %}
+{% for question in survey.questions %}
+<h2>{{ question.question }}</h2>
+{% endfor %}
+<h2>Your Answers - {{answers}}</h2>
+{% endblock %}
