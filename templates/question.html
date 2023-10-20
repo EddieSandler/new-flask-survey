@@ -2,6 +2,19 @@
 
 
 {% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+
+    {% for category, message in messages %}
+      <h1>{{ category }} - {{ message }}</h1>
+    {% endfor %}
+
+  {% endif %}
+{% endwith %}
+
+
+
+
 <h1>Question {{ id }}</h1>
 <h2>{{question.question}}</h2>
 <h2>{% for choice in question.choices %}</h2>
@@ -11,5 +24,6 @@
   <button>submit</button>
 </select>
   </form>
+
 
 {% endblock%}
